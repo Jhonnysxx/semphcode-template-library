@@ -8,10 +8,23 @@
       "displayName": "Content Management App",
       "description": "Reusable application archetype for managing searchable, filterable and editable content collections.",
       "archetype": "content-management-app",
-      "supportedModes": ["frontend-vite"],
-      "complexity": ["mvp-polished", "advanced"],
+      "supportedModes": [
+        "frontend-vite"
+      ],
+      "complexity": [
+        "mvp-polished",
+        "advanced"
+      ],
       "entry": "archetypes/content-management-app/template.json",
-      "tags": ["content", "crud", "search", "filters", "forms", "details", "local-storage"],
+      "tags": [
+        "content",
+        "crud",
+        "search",
+        "filters",
+        "forms",
+        "details",
+        "local-storage"
+      ],
       "qualityBaseline": 90
     }
   ]

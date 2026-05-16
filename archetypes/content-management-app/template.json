@@ -4,8 +4,13 @@
   "displayName": "Content Management App",
   "description": "Reusable application archetype for managing searchable, filterable and editable content collections.",
   "archetype": "content-management-app",
-  "supportedModes": ["frontend-vite"],
-  "complexity": ["mvp-polished", "advanced"],
+  "supportedModes": [
+    "frontend-vite"
+  ],
+  "complexity": [
+    "mvp-polished",
+    "advanced"
+  ],
   "editableInstructions": "Preserve the architecture, design system and core interaction patterns. Adapt the content model, labels, seed data, visual tone and optional features to the user's requested domain. Do not reduce the project to a minimal single-file app.",
   "qualityChecklist": [
     "Uses modular components",
@@ -21,54 +26,19 @@
   ],
   "files": [
     {
-      "path": "package.json",
-      "language": "json",
-      "source": "files/package.json"
-    },
-    {
       "path": "index.html",
       "language": "html",
       "source": "files/index.html"
     },
     {
-      "path": "vite.config.ts",
-      "language": "typescript",
-      "source": "files/vite.config.ts"
-    },
-    {
-      "path": "tsconfig.json",
+      "path": "package.json",
       "language": "json",
-      "source": "files/tsconfig.json"
-    },
-    {
-      "path": "src/main.tsx",
-      "language": "typescript",
-      "source": "files/src/main.tsx"
+      "source": "files/package.json"
     },
     {
       "path": "src/App.tsx",
       "language": "typescript",
       "source": "files/src/App.tsx"
-    },
-    {
-      "path": "src/index.css",
-      "language": "css",
-      "source": "files/src/index.css"
-    },
-    {
-      "path": "src/types.ts",
-      "language": "typescript",
-      "source": "files/src/types.ts"
-    },
-    {
-      "path": "src/data/seedItems.ts",
-      "language": "typescript",
-      "source": "files/src/data/seedItems.ts"
-    },
-    {
-      "path": "src/lib/storage.ts",
-      "language": "typescript",
-      "source": "files/src/lib/storage.ts"
     },
     {
       "path": "src/components/AppShell.tsx",
@@ -79,6 +49,111 @@
       "path": "src/components/ContentCard.tsx",
       "language": "typescript",
       "source": "files/src/components/ContentCard.tsx"
+    },
+    {
+      "path": "src/components/ContentGrid.tsx",
+      "language": "typescript",
+      "source": "files/src/components/ContentGrid.tsx"
+    },
+    {
+      "path": "src/components/DetailModal.tsx",
+      "language": "typescript",
+      "source": "files/src/components/DetailModal.tsx"
+    },
+    {
+      "path": "src/components/EmptyState.tsx",
+      "language": "typescript",
+      "source": "files/src/components/EmptyState.tsx"
+    },
+    {
+      "path": "src/components/Header.tsx",
+      "language": "typescript",
+      "source": "files/src/components/Header.tsx"
+    },
+    {
+      "path": "src/components/ItemFormModal.tsx",
+      "language": "typescript",
+      "source": "files/src/components/ItemFormModal.tsx"
+    },
+    {
+      "path": "src/components/LoadingState.tsx",
+      "language": "typescript",
+      "source": "files/src/components/LoadingState.tsx"
+    },
+    {
+      "path": "src/components/SearchAndFilters.tsx",
+      "language": "typescript",
+      "source": "files/src/components/SearchAndFilters.tsx"
+    },
+    {
+      "path": "src/components/StatsStrip.tsx",
+      "language": "typescript",
+      "source": "files/src/components/StatsStrip.tsx"
+    },
+    {
+      "path": "src/components/ui/Badge.tsx",
+      "language": "typescript",
+      "source": "files/src/components/ui/Badge.tsx"
+    },
+    {
+      "path": "src/components/ui/Button.tsx",
+      "language": "typescript",
+      "source": "files/src/components/ui/Button.tsx"
+    },
+    {
+      "path": "src/components/ui/Card.tsx",
+      "language": "typescript",
+      "source": "files/src/components/ui/Card.tsx"
+    },
+    {
+      "path": "src/components/ui/Input.tsx",
+      "language": "typescript",
+      "source": "files/src/components/ui/Input.tsx"
+    },
+    {
+      "path": "src/components/ui/Modal.tsx",
+      "language": "typescript",
+      "source": "files/src/components/ui/Modal.tsx"
+    },
+    {
+      "path": "src/data/seedItems.ts",
+      "language": "typescript",
+      "source": "files/src/data/seedItems.ts"
+    },
+    {
+      "path": "src/index.css",
+      "language": "css",
+      "source": "files/src/index.css"
+    },
+    {
+      "path": "src/lib/format.ts",
+      "language": "typescript",
+      "source": "files/src/lib/format.ts"
+    },
+    {
+      "path": "src/lib/storage.ts",
+      "language": "typescript",
+      "source": "files/src/lib/storage.ts"
+    },
+    {
+      "path": "src/main.tsx",
+      "language": "typescript",
+      "source": "files/src/main.tsx"
+    },
+    {
+      "path": "src/types.ts",
+      "language": "typescript",
+      "source": "files/src/types.ts"
+    },
+    {
+      "path": "tsconfig.json",
+      "language": "json",
+      "source": "files/tsconfig.json"
+    },
+    {
+      "path": "vite.config.ts",
+      "language": "typescript",
+      "source": "files/vite.config.ts"
     }
   ]
 }
