@@ -1,13 +1,16 @@
-import type { ReactNode } from "react";
+import { ReactNode } from 'react';
+import { Header } from './Header';
 
 type AppShellProps = {
   children: ReactNode;
+  onCreate: () => void;
 };
 
-export function AppShell({ children }: AppShellProps) {
+export function AppShell({ children, onCreate }: AppShellProps) {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_#e0f2fe,_transparent_32%),linear-gradient(180deg,_#f8fafc_0%,_#eef2f7_100%)] text-slate-950">
-      {children}
+    <div className="app-shell">
+      <Header onCreate={onCreate} />
+      <main>{children}</main>
     </div>
   );
 }

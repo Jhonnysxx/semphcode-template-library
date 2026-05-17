@@ -1,28 +1,18 @@
 {
   "id": "content-management-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "displayName": "Content Management App",
-  "description": "Reusable application archetype for managing searchable, filterable and editable content collections.",
   "archetype": "content-management-app",
   "supportedModes": [
     "frontend-vite"
   ],
-  "complexity": [
-    "mvp-polished",
-    "advanced"
-  ],
-  "editableInstructions": "Preserve the architecture, design system and core interaction patterns. Adapt the content model, labels, seed data, visual tone and optional features to the user's requested domain. Do not reduce the project to a minimal single-file app.",
+  "editableInstructions": "Use este template como base generica para gerenciar registros internos. Aplique o dominio do usuario somente em textos visiveis, labels, seed data e metadados. Preserve ContentGrid, ContentCard, DetailModal, ItemFormModal, SearchAndFilters, storage e componentes UI.",
   "qualityChecklist": [
-    "Uses modular components",
-    "Includes searchable and filterable content",
-    "Includes detail view",
-    "Includes create or edit flow",
-    "Includes realistic seed data",
-    "Includes empty, loading and error states",
-    "Includes responsive layout",
-    "Uses local CSS without external CDN",
-    "Contains no hardcoded API keys",
-    "Contains no empty critical files"
+    "Manter ContentGrid, ContentCard, DetailModal e ItemFormModal.",
+    "Manter seedItems com pelo menos 10 registros genericos e realistas.",
+    "Manter busca, filtros, detalhe, criacao, itens salvos e persistencia local.",
+    "Manter loading, empty e error states.",
+    "Nao reduzir o projeto a um App.tsx simples."
   ],
   "files": [
     {

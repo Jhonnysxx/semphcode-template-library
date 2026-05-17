@@ -1,26 +1,15 @@
 # SemphCode Template Library
 
-Official template library for SemphCode projects.
+Version: 0.2.0
 
-## Structure
+This folder contains the canonical remote export for the content-management-app archetype.
 
-```txt
-manifest.json
-archetypes/
-  content-management-app/
-    template.json
-    files/
-      package.json
-      index.html
-      vite.config.ts
-      tsconfig.json
-      src/
-```
+## Template
 
-## Usage
+- id: content-management-app
+- version: 2.0.0
+- archetype: content-management-app
+- supportedModes: frontend-vite
+- qualityBaseline: 90
 
-Configure SemphCode with:
-
-```env
-VITE_TEMPLATE_LIBRARY_URL=https://raw.githubusercontent.com/YOUR_USER/semphcode-template-library/main
-```
+Upload this folder content to the template library repository root.

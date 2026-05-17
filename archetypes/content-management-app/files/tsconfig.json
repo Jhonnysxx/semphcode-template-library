@@ -3,9 +3,9 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": [
+      "ES2020",
       "DOM",
-      "DOM.Iterable",
-      "ES2020"
+      "DOM.Iterable"
     ],
     "allowJs": false,
     "skipLibCheck": true,
@@ -14,14 +14,14 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
-  ],
-  "references": []
+    "src",
+    "vite.config.ts"
+  ]
 }

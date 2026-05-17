@@ -1,45 +1,16 @@
-import type { ContentItem } from "../types";
-import { seedItems } from "../data/seedItems";
-
-const STORAGE_KEY = "semphcode-content-management-items";
-
-export function loadItems(): ContentItem[] {
-  if (typeof window === "undefined") {
-    return seedItems;
-  }
-
+export function loadFromStorage<T>(key: string, fallback: T): T {
   try {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-
-    if (!stored) {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(seedItems));
-      return seedItems;
-    }
-
-    const parsed = JSON.parse(stored) as ContentItem[];
-
-    if (!Array.isArray(parsed)) {
-      return seedItems;
-    }
-
-    return parsed;
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) as T : fallback;
   } catch {
-    return seedItems;
+    return fallback;
   }
 }
 
-export function saveItems(items: ContentItem[]): void {
-  if (typeof window === "undefined") {
-    return;
+export function saveToStorage<T>(key: string, value: T) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // Local persistence is best-effort in restricted browser contexts.
   }
-
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-}
-
-export function resetItems(): ContentItem[] {
-  if (typeof window !== "undefined") {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(seedItems));
-  }
-
-  return seedItems;
 }

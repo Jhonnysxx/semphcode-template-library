@@ -1,25 +1,23 @@
-import type { ContentItem } from "../types";
-import { ContentCard } from "./ContentCard";
+import { ContentItem } from '../types';
+import { ContentCard } from './ContentCard';
 
 type ContentGridProps = {
   items: ContentItem[];
+  savedIds: string[];
+  onSave: (id: string) => void;
   onOpen: (item: ContentItem) => void;
-  onToggleSaved: (id: string) => void;
 };
 
-export function ContentGrid({
-  items,
-  onOpen,
-  onToggleSaved
-}: ContentGridProps) {
+export function ContentGrid({ items, savedIds, onSave, onOpen }: ContentGridProps) {
   return (
-    <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-      {items.map((item) => (
+    <section className="content-grid">
+      {items.map(item => (
         <ContentCard
-          item={item}
           key={item.id}
+          item={item}
+          saved={savedIds.includes(item.id)}
+          onSave={onSave}
           onOpen={onOpen}
-          onToggleSaved={onToggleSaved}
         />
       ))}
     </section>

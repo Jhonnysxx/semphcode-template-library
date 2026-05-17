@@ -1,12 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "libraryVersion": "0.1.0",
+  "libraryVersion": "0.2.0",
   "templates": [
     {
       "id": "content-management-app",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "displayName": "Content Management App",
-      "description": "Reusable application archetype for managing searchable, filterable and editable content collections.",
       "archetype": "content-management-app",
       "supportedModes": [
         "frontend-vite"
@@ -17,13 +16,12 @@
       ],
       "entry": "archetypes/content-management-app/template.json",
       "tags": [
-        "content",
         "crud",
+        "content",
         "search",
         "filters",
         "forms",
-        "details",
-        "local-storage"
+        "details"
       ],
       "qualityBaseline": 90
     }

@@ -1,18 +1,17 @@
-export type ContentStatus = "draft" | "published" | "archived";
-
-export type ContentPriority = "low" | "medium" | "high";
+export type ContentStatus = 'Active' | 'Review' | 'Archived';
+export type ContentPriority = 'Low' | 'Medium' | 'High';
 
 export type ContentItem = {
   id: string;
   title: string;
-  description: string;
+  summary: string;
   category: string;
   status: ContentStatus;
   priority: ContentPriority;
-  tags: string[];
   owner: string;
+  tags: string[];
   updatedAt: string;
-  readTime: number;
-  featured?: boolean;
-  saved?: boolean;
+  details: string;
 };
+
+export type ContentItemDraft = Omit<ContentItem, 'id' | 'updatedAt'>;

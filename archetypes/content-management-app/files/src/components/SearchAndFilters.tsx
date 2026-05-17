@@ -1,87 +1,60 @@
-import { Filter, Search } from "lucide-react";
-import type { ContentStatus } from "../types";
-import { Input } from "./ui/Input";
+import { Search, SlidersHorizontal } from 'lucide-react';
+import { ContentPriority, ContentStatus } from '../types';
+import { Input } from './ui/Input';
 
 type SearchAndFiltersProps = {
+  query: string;
+  category: string;
+  status: 'All' | ContentStatus;
+  priority: 'All' | ContentPriority;
   categories: string[];
-  selectedCategory: string;
-  selectedStatus: "all" | ContentStatus;
-  search: string;
-  onSearchChange: (value: string) => void;
+  onQueryChange: (value: string) => void;
   onCategoryChange: (value: string) => void;
-  onStatusChange: (value: "all" | ContentStatus) => void;
+  onStatusChange: (value: 'All' | ContentStatus) => void;
+  onPriorityChange: (value: 'All' | ContentPriority) => void;
 };
 
-const statuses: Array<{ label: string; value: "all" | ContentStatus }> = [
-  { label: "Todos", value: "all" },
-  { label: "Publicados", value: "published" },
-  { label: "Rascunhos", value: "draft" },
-  { label: "Arquivados", value: "archived" }
-];
-
 export function SearchAndFilters({
+  query,
+  category,
+  status,
+  priority,
   categories,
-  selectedCategory,
-  selectedStatus,
-  search,
-  onSearchChange,
+  onQueryChange,
   onCategoryChange,
-  onStatusChange
+  onStatusChange,
+  onPriorityChange,
 }: SearchAndFiltersProps) {
   return (
-    <section className="rounded-3xl border border-slate-200 bg-white/85 p-4 shadow-sm shadow-slate-200/70 backdrop-blur">
-      <div className="grid gap-4 lg:grid-cols-[1fr_auto_auto] lg:items-end">
-        <div>
-          <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-slate-700">
-            <Search className="h-4 w-4" />
-            Buscar conteúdo
-          </div>
-
-          <Input
-            aria-label="Buscar conteúdo"
-            placeholder="Busque por título, descrição, responsável ou tag..."
-            value={search}
-            onChange={(event) => onSearchChange(event.target.value)}
-          />
-        </div>
-
-        <label className="block">
-          <span className="mb-2 flex items-center gap-2 text-sm font-semibold text-slate-700">
-            <Filter className="h-4 w-4" />
-            Categoria
-          </span>
-
-          <select
-            className="h-11 min-w-[180px] rounded-xl border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 shadow-sm focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200"
-            value={selectedCategory}
-            onChange={(event) => onCategoryChange(event.target.value)}
-          >
-            <option value="all">Todas</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
+    <section className="filters-panel">
+      <div className="search-box">
+        <Search size={18} />
+        <Input value={query} onChange={event => onQueryChange(event.target.value)} placeholder="Buscar por titulo, resumo, responsavel ou tag" />
+      </div>
+      <div className="filter-grid">
+        <label>
+          <span><SlidersHorizontal size={15} /> Categoria</span>
+          <select value={category} onChange={event => onCategoryChange(event.target.value)}>
+            <option value="All">Todas</option>
+            {categories.map(item => <option key={item} value={item}>{item}</option>)}
           </select>
         </label>
-
-        <label className="block">
-          <span className="mb-2 block text-sm font-semibold text-slate-700">
-            Status
-          </span>
-
-          <select
-            className="h-11 min-w-[160px] rounded-xl border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 shadow-sm focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200"
-            value={selectedStatus}
-            onChange={(event) =>
-              onStatusChange(event.target.value as "all" | ContentStatus)
-            }
-          >
-            {statuses.map((status) => (
-              <option key={status.value} value={status.value}>
-                {status.label}
-              </option>
-            ))}
+        <label>
+          <span>Status</span>
+          <select value={status} onChange={event => onStatusChange(event.target.value as 'All' | ContentStatus)}>
+            <option value="All">Todos</option>
+            <option value="Active">Active</option>
+            <option value="Review">Review</option>
+            <option value="Archived">Archived</option>
+          </select>
+        </label>
+        <label>
+          <span>Prioridade</span>
+          <select value={priority} onChange={event => onPriorityChange(event.target.value as 'All' | ContentPriority)}>
+            <option value="All">Todas</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
           </select>
         </label>
       </div>
