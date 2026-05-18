@@ -1,4 +1,4 @@
-import { CalendarDays, UserRound } from 'lucide-react';
+import { CalendarDays, User } from 'lucide-react';
 import { ContentItem } from '../types';
 import { formatDate } from '../lib/format';
 import { Badge } from './ui/Badge';
@@ -18,16 +18,33 @@ export function DetailModal({ item, saved, onSave, onClose }: DetailModalProps) 
       {item && (
         <div className="detail-stack">
           <p className="detail-summary">{item.summary}</p>
+
           <div className="detail-meta">
-            <Badge tone={item.status === 'Active' ? 'success' : item.status === 'Review' ? 'warning' : 'neutral'}>{item.status}</Badge>
-            <Badge tone={item.priority === 'High' ? 'danger' : item.priority === 'Medium' ? 'warning' : 'neutral'}>{item.priority}</Badge>
-            <span><UserRound size={15} /> {item.owner}</span>
-            <span><CalendarDays size={15} /> {formatDate(item.updatedAt)}</span>
+            <Badge tone={item.status === 'Active' ? 'success' : item.status === 'Review' ? 'warning' : 'neutral'}>
+              {item.status}
+            </Badge>
+
+            <Badge tone={item.priority === 'High' ? 'danger' : item.priority === 'Medium' ? 'warning' : 'neutral'}>
+              {item.priority}
+            </Badge>
+
+            <span>
+              <User size={15} /> {item.owner}
+            </span>
+
+            <span>
+              <CalendarDays size={15} /> {formatDate(item.updatedAt)}
+            </span>
           </div>
+
           <p>{item.details}</p>
+
           <div className="tag-list">
-            {item.tags.map(tag => <span key={tag}>{tag}</span>)}
+            {item.tags.map(tag => (
+              <span key={tag}>{tag}</span>
+            ))}
           </div>
+
           <Button onClick={onSave}>{saved ? 'Remover dos salvos' : 'Salvar item'}</Button>
         </div>
       )}
